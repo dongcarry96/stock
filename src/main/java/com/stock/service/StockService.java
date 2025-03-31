@@ -2,7 +2,6 @@ package com.stock.service;
 
 import com.stock.domain.Stock;
 import com.stock.repository.StockRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,8 +15,8 @@ public class StockService {
     }
 
     // 재고감소 메소드
-    @Transactional
-    public void decrease(Long id, Long quantity) {
+//    @Transactional
+    public synchronized void decrease(Long id, Long quantity) {
         // Stock 조회
         // 재고를 감소시킨뒤
         // 갱신된 값을 저장하도록
